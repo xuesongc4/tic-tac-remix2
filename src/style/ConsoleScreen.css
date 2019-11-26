@@ -1,0 +1,5 @@
+.ConsoleScreen{
+    height: 100vh;
+    background:url('../assets/images/background1.gif')center center no-repeat;
+    background-size: cover;
+}
