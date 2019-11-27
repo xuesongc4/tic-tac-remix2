@@ -1,5 +1,7 @@
 import React from 'react'
 import '../style/ConsoleScreen.css'
+import DifficultySelector from "../Components/DifficultySelector";
+import NameInputs from "../Components/NameInputs";
 
 const ConsoleScreen = (props) => {
     return (
@@ -7,6 +9,9 @@ const ConsoleScreen = (props) => {
             <div className="title">
                 <h1>Tic-Tac-Remix!</h1>
             </div>
+            <div className="startButton" onClick={()=>props.changeConsoleScreen()}>StartGame!</div>
+            <DifficultySelector changeBoardSizeClick={props.changeBoardSizeClick}  currentLevel={props.currentLevel}/>
+            <NameInputs/>
         </div>
     )
 }
