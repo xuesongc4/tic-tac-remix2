@@ -11,7 +11,7 @@ const ConsoleScreen = (props) => {
             </div>
             <div className="startButton" onClick={()=>props.changeConsoleScreen()}>StartGame!</div>
             <DifficultySelector changeBoardSizeClick={props.changeBoardSizeClick}  currentLevel={props.currentLevel}/>
-            <NameInputs/>
+            <NameInputs playerNameInput={props.playerNameInput}/>
         </div>
     )
 }
