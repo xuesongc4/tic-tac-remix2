@@ -11,11 +11,11 @@ class App extends Component {
         player2: 'O-mega'
     }
 
-    changeConsoleScreen = (player1, player2) => {
-        this.setState({consoleScreen: false, players: [player1, player2]})
-    }
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
+    }
+    changeScreenClick = () =>{
+        this.setState({consoleScreen:false})
     }
     playerNameInput = (event, index) => {
         const name = event.target.value;
@@ -32,8 +32,9 @@ class App extends Component {
             <div className="App">
                 <GameScreen/>
                 <ConsoleScreen
+                    currentScreen={this.state.consoleScreen}
+                    changeScreenClick={this.changeScreenClick}
                     playerNameInput={this.playerNameInput}
-                    consoleScreenClick={this.changeConsoleScreen}
                     changeBoardSizeClick={this.changeBoardSize}
                     currentLevel={this.state.boardSize}
                 />
