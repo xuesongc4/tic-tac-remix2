@@ -8,11 +8,20 @@ class App extends Component {
         boardSize: 'rookie',
         consoleScreen: true,
         player1: 'X-treme',
-        player2: 'O-mega'
+        player2: 'O-mega',
+        rule: '3 in a row to win'
     }
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
+
+        if(size === 'Rookie'){
+            this.setState({rule: '3 in a row to win'})
+        }else if(size === 'Pro'){
+            this.setState({rule: '4 in a row to win'})
+        }else{
+            this.setState({rule: '5 in a row to win'})
+        }
     }
     changeScreenClick = () =>{
         this.setState({consoleScreen:false})
@@ -30,7 +39,15 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <GameScreen/>
+                <GameScreen
+                    gameData={
+                        {
+                            player1:'DJ '+this.state.player1,
+                            player2:'DJ '+this.state.player2,
+                            rule: this.state.rule
+                        }
+                    }
+                />
                 <ConsoleScreen
                     currentScreen={this.state.consoleScreen}
                     changeScreenClick={this.changeScreenClick}

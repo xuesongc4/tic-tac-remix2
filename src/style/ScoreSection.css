@@ -1,0 +1,71 @@
+.GameScreen{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.ScoreSection{
+    background:url('../assets/images/controls_bg.jpg')top left repeat;
+    width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vs{
+    margin: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: red;
+    font-style: italic;
+    font-size: 65px;
+    text-shadow: 2px 2px 10px lightgrey;
+}
+
+.resetButton{
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+    width: 180px;
+    color: white;
+    font-weight: bolder;
+    font-style: italic;
+    line-height: 180px;
+    background-color: red;
+    border: 5px solid white;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 40px;
+}
+.resetButton:hover{
+    animation: flash2 .5s infinite;
+}
+
+.ScoreBlock{
+    background-color: rgba(0,0,0,.7);
+    border: 5px solid red;
+    border-radius: 5px;
+    text-align: center;
+    padding: 40px 5px 20px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    width: 180px;
+    height: 80px;
+    font-style: italic;
+    margin: 20px;
+    color: white;
+}
+
+.ScoreBlock.active{
+    animation: flash2 .5s infinite;
+    background-color: rgba(240,128,128, .5);
+}
+
+@keyframes flash2 {
+    0% {  box-shadow: 0 0 50px 20px red;}
+    50% {  box-shadow: 0 0 10px 10px red;}
+    100% {  box-shadow: 0 0 50px 20px red;}
+}

@@ -1,0 +1,6 @@
+.GameSection{
+    background: url('../assets/images/app_bg.jpg')top right no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
