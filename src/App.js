@@ -9,7 +9,8 @@ class App extends Component {
         consoleScreen: true,
         player1: 'X-treme',
         player2: 'O-mega',
-        rule: '3 in a row to win'
+        rule: '3 in a row to win',
+        active: 1
     }
 
     changeBoardSize = (size) => {
@@ -44,7 +45,8 @@ class App extends Component {
                         {
                             player1:'DJ '+this.state.player1,
                             player2:'DJ '+this.state.player2,
-                            rule: this.state.rule
+                            rule: this.state.rule,
+                            active: this.state.active
                         }
                     }
                 />
