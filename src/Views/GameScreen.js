@@ -1,5 +1,6 @@
 import React from 'react'
-import '../style/GameScreen.css'
+import '../style/ScoreSection.css'
+import '../style/GameSection.css'
 import ScoreSection from "../Components/ScoreSection";
 import GameSection from "../Components/GameSection";
 
@@ -7,7 +8,7 @@ import GameSection from "../Components/GameSection";
 const GameScreen = (props) => {
     return (
         <div className={'GameScreen'}>
-            <ScoreSection/>
+            <ScoreSection gameData={props.gameData}/>
             <GameSection/>
         </div>
     )

@@ -14,12 +14,6 @@
     align-items: center;
 }
 
-.GameSection{
-    background: url('../assets/images/app_bg.jpg')top right no-repeat;
-    height: 100%;
-    width: 100%;
-}
-
 .vs{
     margin: 20px;
     text-align: center;
@@ -54,14 +48,17 @@
     border: 5px solid red;
     border-radius: 5px;
     text-align: center;
-    padding: 5px;
-    font-size: 20px;
+    padding: 40px 5px 20px;
+    font-size: 28px;
     font-weight: 700;
-    height: 110px;
+    line-height: 1.1;
     width: 180px;
+    height: 80px;
     font-style: italic;
     margin: 20px;
+    color: white;
 }
+
 .ScoreBlock.active{
     animation: flash2 .5s infinite;
     background-color: rgba(240,128,128, .5);
