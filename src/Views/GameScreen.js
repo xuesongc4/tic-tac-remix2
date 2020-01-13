@@ -2,14 +2,15 @@ import React from 'react'
 import '../style/ScoreSection.css'
 import '../style/GameSection.css'
 import ScoreSection from "../Components/ScoreSection";
-import GameSection from "../Components/GameSection";
+import GameBoard from "../Components/GameBoard";
 
 
 const GameScreen = (props) => {
+
     return (
         <div className={'GameScreen'}>
             <ScoreSection gameData={props.gameData}/>
-            <GameSection/>
+            <GameBoard gameData={props.gameData} scoreBlockClick={props.scoreBlockClick}/>
         </div>
     )
 }

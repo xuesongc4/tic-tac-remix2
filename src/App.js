@@ -5,24 +5,15 @@ import ConsoleScreen from "./Views/ConsoleScreen";
 
 class App extends Component {
     state = {
-        boardSize: 'rookie',
+        boardSize: 'Rookie',
         consoleScreen: true,
         player1: 'X-treme',
         player2: 'O-mega',
-        rule: '3 in a row to win',
-        active: 1
+        player1Turn: true
     }
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
-
-        if(size === 'Rookie'){
-            this.setState({rule: '3 in a row to win'})
-        }else if(size === 'Pro'){
-            this.setState({rule: '4 in a row to win'})
-        }else{
-            this.setState({rule: '5 in a row to win'})
-        }
     }
     changeScreenClick = () =>{
         this.setState({consoleScreen:false})
@@ -36,6 +27,9 @@ class App extends Component {
             this.setState({player2: name})
         }
     }
+    scoreBlockClick = () =>{
+        this.setState({player1Turn: !this.state.player1Turn})
+    }
 
     render() {
         return (
@@ -45,10 +39,11 @@ class App extends Component {
                         {
                             player1:'DJ '+this.state.player1,
                             player2:'DJ '+this.state.player2,
-                            rule: this.state.rule,
-                            active: this.state.active
+                            player1Turn: this.state.player1Turn,
+                            boardSize: this.state.boardSize
                         }
                     }
+                    scoreBlockClick={this.scoreBlockClick}
                 />
                 <ConsoleScreen
                     currentScreen={this.state.consoleScreen}
