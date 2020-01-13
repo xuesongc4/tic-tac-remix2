@@ -18,8 +18,8 @@ const DifficultySelector = (props)=>{
     return(
         <div className='selectDifficultyWrapper'>
             <div className={style.rookie} onClick={()=>props.changeBoardSizeClick('Rookie')}>Rookie (3x3)</div>
-            <div className={style.pro}  onClick={()=>props.changeBoardSizeClick('Pro')}>Pro (9x9)</div>
-            <div className={style.superstar}  onClick={()=>props.changeBoardSizeClick('SuperStar')}>SuperStar (20x20)</div>
+            <div className={style.pro}  onClick={()=>props.changeBoardSizeClick('Pro')}>Pro (8x8)</div>
+            <div className={style.superstar}  onClick={()=>props.changeBoardSizeClick('SuperStar')}>SuperStar (19x19)</div>
         </div>
     )
 }

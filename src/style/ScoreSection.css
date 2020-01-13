@@ -64,8 +64,3 @@
     background-color: rgba(240,128,128, .5);
 }
 
-@keyframes flash2 {
-    0% {  box-shadow: 0 0 50px 20px red;}
-    50% {  box-shadow: 0 0 10px 10px red;}
-    100% {  box-shadow: 0 0 50px 20px red;}
-}

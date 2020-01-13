@@ -1,6 +1,44 @@
-.GameSection{
+.GameBoard{
     background: url('../assets/images/app_bg.jpg')top right no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GameBoardContainer{
+    height: 75vh;
+    width: 75vh;
+    display: grid;
+    margin-bottom: 50px;
+}
+
+.GameBoardContainer.Rookie{
+    grid-template-columns:repeat(3, 1fr) ;
+    grid-gap: 10px;
+}
+
+.GameBoardContainer.Pro{
+    grid-template-columns:repeat(8, 1fr) ;
+    grid-gap: 7px;
+}
+
+.GameBoardContainer.Superstar{
+    grid-template-columns:repeat(19, 1fr) ;
+    grid-gap: 4px;
+}
+
+.gameSquare{
+    background-color: rgba(50,50,50,.6);
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
+.gameSquare:hover{
+    cursor: pointer;
+    animation: flash2 .5s infinite;
+    background-color: rgba(240,128,128, .5);
 }
