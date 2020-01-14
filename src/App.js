@@ -10,14 +10,21 @@ class App extends Component {
         player1: 'X-treme',
         player2: 'O-mega',
         player1Turn: true
-    }
+    };
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
-    }
+    };
+
     changeScreenClick = () =>{
         this.setState({consoleScreen:false})
-    }
+    };
+
+    scoreBlockClick = (i,j) =>{
+        this.setState({player1Turn: !this.state.player1Turn});
+        console.log(i,j)
+    };
+
     playerNameInput = (event, index) => {
         const name = event.target.value;
         if (name && index === 1) {
@@ -26,10 +33,8 @@ class App extends Component {
         if (name && index === 2) {
             this.setState({player2: name})
         }
-    }
-    scoreBlockClick = () =>{
-        this.setState({player1Turn: !this.state.player1Turn})
-    }
+    };
+
 
     render() {
         return (
