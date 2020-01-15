@@ -9,7 +9,8 @@ class App extends Component {
         consoleScreen: true,
         player1: 'X-treme',
         player2: 'O-mega',
-        player1Turn: true
+        player1Turn: true,
+        gameState: [[],[],[]]
     };
 
     changeBoardSize = (size) => {
@@ -18,11 +19,40 @@ class App extends Component {
 
     changeScreenClick = () =>{
         this.setState({consoleScreen:false})
+        this.createBoard();
     };
 
+    createBoard = () =>{
+        let setGameState =[];
+        let gameBoardSize;
+        if(this.state.boardSize === "SuperStar"){
+            gameBoardSize = 19;
+        }else if(this.state.boardSize === "Pro"){
+            gameBoardSize = 8;
+        }else{
+            gameBoardSize = 3;
+        }
+
+        for(let i = 0; i < gameBoardSize; i++){
+            setGameState[i] = [];
+            for(let j = 0; j < gameBoardSize; j++){
+                setGameState[i][j]=[];
+            }
+        }
+        this.setState({gameState:setGameState})
+    }
+
     scoreBlockClick = (i,j) =>{
-        this.setState({player1Turn: !this.state.player1Turn});
-        console.log(i,j)
+        let newGameState = [...this.state.gameState];
+        if(this.state.player1Turn){
+            newGameState[i][j] = "X"
+        }else{
+            newGameState[i][j] = "O"
+        }
+        this.setState({
+            player1Turn: !this.state.player1Turn,
+            gameState: newGameState
+        });
     };
 
     playerNameInput = (event, index) => {
@@ -45,7 +75,8 @@ class App extends Component {
                             player1:'DJ '+this.state.player1,
                             player2:'DJ '+this.state.player2,
                             player1Turn: this.state.player1Turn,
-                            boardSize: this.state.boardSize
+                            boardSize: this.state.boardSize,
+                            gameState: this.state.gameState
                         }
                     }
                     scoreBlockClick={this.scoreBlockClick}
