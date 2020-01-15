@@ -17,11 +17,11 @@ const GameBoard = (props)=>{
         let board = [];
         for(let i = 0; i < gameBoardSize; i++){
             for(let j = 0; j < gameBoardSize; j++){
-                board.push(<GameBoardSquare gameData={props.gameData} scoreBlockClick={props.scoreBlockClick} positionX={i} positionY={j} key={'square-'+i+j}/>)
+                board.push(<GameBoardSquare gameData={props.gameData} scoreBlockClick={props.scoreBlockClick} positionX={i} positionY={j} key={'row'+i+'-col'+j}/>)
             }
         }
         return board
-    }
+    };
 
     return(
         <div className='GameBoard'>
@@ -30,6 +30,6 @@ const GameBoard = (props)=>{
             </div>
         </div>
     )
-}
+};
 
 export default GameBoard

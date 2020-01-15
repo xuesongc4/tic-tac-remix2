@@ -25,7 +25,7 @@
     grid-gap: 7px;
 }
 
-.GameBoardContainer.Superstar{
+.GameBoardContainer.SuperStar{
     grid-template-columns:repeat(19, 1fr) ;
     grid-gap: 4px;
 }
@@ -34,11 +34,22 @@
     background-color: rgba(50,50,50,.6);
     height: 100%;
     width: 100%;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameSquare img{
+    width: 90%;
+    height: 90%;
 }
 
 .gameSquare:hover{
     cursor: pointer;
     animation: flash2 .5s infinite;
     background-color: rgba(240,128,128, .5);
+}
+
+.gameSquare.noClick{
+    pointer-events: none;
 }
