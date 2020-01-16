@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import GameScreen from "./Views/GameScreen";
 import ConsoleScreen from "./Views/ConsoleScreen";
+import checkWin from "./Util/winCondition"
 
 class App extends Component {
     state = {
@@ -10,8 +11,21 @@ class App extends Component {
         player1: 'X-treme',
         player2: 'O-mega',
         player1Turn: true,
-        gameState: []
+        gameState: [],
+        gameWon: false,
+        gameTied: false
     };
+
+    playerNameInput = (event, index) => {
+        const name = event.target.value;
+        if (name && index === 1) {
+            this.setState({player1: name})
+        }
+        if (name && index === 2) {
+            this.setState({player2: name})
+        }
+    };
+
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
@@ -42,29 +56,38 @@ class App extends Component {
         this.setState({gameState:setGameState})
     }
 
-    scoreBlockClick = (i,j) =>{
+    blockClick = (i,j) =>{
         let newGameState = [...this.state.gameState];
+        let currentPlayerTurn;
+        let neededToWin;
+
         if(this.state.player1Turn){
-            newGameState[i][j] = "X"
+            currentPlayerTurn = "X";
+            newGameState[i][j] = "X";
         }else{
-            newGameState[i][j] = "O"
+            currentPlayerTurn = "Y";
+            newGameState[i][j] = "O";
         }
+
+        if(this.state.boardSize === "Rookie"){
+            neededToWin = 3;
+        }
+        else if(this.state.boardSize === "Pro"){
+            neededToWin = 4;
+        }
+        else{
+            neededToWin = 5;
+        }
+
+        if(checkWin(i,j,neededToWin,newGameState,currentPlayerTurn)){
+            this.setState({gameWon:true})
+        }
+
         this.setState({
             player1Turn: !this.state.player1Turn,
             gameState: newGameState
         });
     };
-
-    playerNameInput = (event, index) => {
-        const name = event.target.value;
-        if (name && index === 1) {
-            this.setState({player1: name})
-        }
-        if (name && index === 2) {
-            this.setState({player2: name})
-        }
-    };
-
 
     render() {
         return (
@@ -77,10 +100,12 @@ class App extends Component {
                             player1Turn: this.state.player1Turn,
                             boardSize: this.state.boardSize,
                             gameState: this.state.gameState,
-                            consoleScreen: this.state.consoleScreen
+                            consoleScreen: this.state.consoleScreen,
+                            gameWon: this.state.gameWon,
+                            gameTied: this.state.gameTied
                         }
                     }
-                    scoreBlockClick={this.scoreBlockClick}
+                    blockClick={this.blockClick}
                 />
                 <ConsoleScreen
                     currentScreen={this.state.consoleScreen}
