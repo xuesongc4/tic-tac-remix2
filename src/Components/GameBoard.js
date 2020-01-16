@@ -14,13 +14,15 @@ const GameBoard = (props)=>{
     }
 
     const createBoard = () =>{
-        let board = [];
-        for(let i = 0; i < gameBoardSize; i++){
-            for(let j = 0; j < gameBoardSize; j++){
-                board.push(<GameBoardSquare gameData={props.gameData} scoreBlockClick={props.scoreBlockClick} positionX={i} positionY={j} key={'row'+i+'-col'+j}/>)
+        if(!props.gameData.consoleScreen){
+            let board = [];
+            for(let i = 0; i < gameBoardSize; i++){
+                for(let j = 0; j < gameBoardSize; j++){
+                    board.push(<GameBoardSquare gameData={props.gameData} scoreBlockClick={props.scoreBlockClick} positionX={i} positionY={j} key={'row'+i+'-col'+j}/>)
+                }
             }
+            return board
         }
-        return board
     };
 
     return(
