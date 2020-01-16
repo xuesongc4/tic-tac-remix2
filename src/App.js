@@ -10,7 +10,7 @@ class App extends Component {
         player1: 'X-treme',
         player2: 'O-mega',
         player1Turn: true,
-        gameState: [[],[],[]]
+        gameState: []
     };
 
     changeBoardSize = (size) => {
@@ -76,7 +76,8 @@ class App extends Component {
                             player2:'DJ '+this.state.player2,
                             player1Turn: this.state.player1Turn,
                             boardSize: this.state.boardSize,
-                            gameState: this.state.gameState
+                            gameState: this.state.gameState,
+                            consoleScreen: this.state.consoleScreen
                         }
                     }
                     scoreBlockClick={this.scoreBlockClick}
