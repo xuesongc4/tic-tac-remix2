@@ -18,7 +18,7 @@ const GameBoard = (props)=>{
             let board = [];
             for(let i = 0; i < gameBoardSize; i++){
                 for(let j = 0; j < gameBoardSize; j++){
-                    board.push(<GameBoardSquare gameData={props.gameData} scoreBlockClick={props.scoreBlockClick} positionX={i} positionY={j} key={'row'+i+'-col'+j}/>)
+                    board.push(<GameBoardSquare gameData={props.gameData} blockClick={props.blockClick} positionX={i} positionY={j} key={'row'+i+'-col'+j}/>)
                 }
             }
             return board

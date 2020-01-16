@@ -20,7 +20,7 @@ const GameBoardSquare = (props) => {
             }
             data-row={props.positionX} data-column={props.positionY}
             onClick={() => {
-                props.scoreBlockClick(props.positionX, props.positionY)
+                props.blockClick(props.positionX, props.positionY)
             }}>
             <img src={renderMarker()} alt=''/>
         </div>

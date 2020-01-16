@@ -10,7 +10,7 @@ const GameScreen = (props) => {
     return (
         <div className={'GameScreen'}>
             <ScoreSection gameData={props.gameData}/>
-            <GameBoard gameData={props.gameData} scoreBlockClick={props.scoreBlockClick}/>
+            <GameBoard gameData={props.gameData} blockClick={props.blockClick}/>
         </div>
     )
 }
