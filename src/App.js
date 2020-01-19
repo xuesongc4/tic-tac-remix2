@@ -13,7 +13,9 @@ class App extends Component {
         player1Turn: true,
         gameState: [],
         gameWon: false,
-        gameTied: false
+        gameTied: false,
+        restartButton: false,
+        turns:0
     };
 
     playerNameInput = (event, index) => {
@@ -26,6 +28,20 @@ class App extends Component {
         }
     };
 
+    restartButtonClick = () =>{
+        this.setState({restartButton:true})
+    }
+
+    resetGame = () =>{
+        this.setState({
+            player1Turn: true,
+            gameState: [],
+            gameWon: false,
+            gameTied: false,
+            turns:0,
+            restartButton: false});
+        this.createBoard();
+    }
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
@@ -37,6 +53,7 @@ class App extends Component {
     };
 
     createBoard = () =>{
+        console.log("create board")
         let setGameState =[];
         let gameBoardSize;
         if(this.state.boardSize === "SuperStar"){
@@ -60,27 +77,40 @@ class App extends Component {
         let newGameState = [...this.state.gameState];
         let currentPlayerTurn;
         let neededToWin;
+        let tieCondition;
+
+        this.setState({turns:this.state.turns+1});
 
         if(this.state.player1Turn){
             currentPlayerTurn = "X";
             newGameState[i][j] = "X";
         }else{
-            currentPlayerTurn = "Y";
+            currentPlayerTurn = "O";
             newGameState[i][j] = "O";
         }
 
         if(this.state.boardSize === "Rookie"){
             neededToWin = 3;
+            tieCondition = 9;
         }
         else if(this.state.boardSize === "Pro"){
             neededToWin = 4;
+            tieCondition = 64;
         }
         else{
             neededToWin = 5;
+            tieCondition = 361;
         }
 
+        console.log(tieCondition)
+
         if(checkWin(i,j,neededToWin,newGameState,currentPlayerTurn)){
+            console.log("win")
             this.setState({gameWon:true})
+        }
+        if(this.state.turns >= tieCondition){
+            console.log("tie")
+            this.setState({gameTied:true})
         }
 
         this.setState({
@@ -102,10 +132,13 @@ class App extends Component {
                             gameState: this.state.gameState,
                             consoleScreen: this.state.consoleScreen,
                             gameWon: this.state.gameWon,
-                            gameTied: this.state.gameTied
+                            gameTied: this.state.gameTied,
+                            restartButton: this.state.restartButton
                         }
                     }
                     blockClick={this.blockClick}
+                    restartClick={this.restartButtonClick}
+                    resetGameClick={this.resetGame}
                 />
                 <ConsoleScreen
                     currentScreen={this.state.consoleScreen}
