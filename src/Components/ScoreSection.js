@@ -27,9 +27,9 @@ const ScoreSection = (props)=>{
             </div>
             <ScoreBlock active={!active} content={props.gameData.player2}/>
             <ScoreBlock content={rule}/>
-            <a href="/" className="resetButton">
+            <div className="resetButton" onClick={props.restartClick}>
                 Restart Game
-            </a>
+            </div>
         </div>
     )
 }

@@ -102,8 +102,6 @@ const checkUpperDiagonal = (i,j,blocksToWin, XorO, stateGameState) =>{
 
 
 function checkWin (i,j, blocksToWin, stateGameState, XorO){
-    console.log("test check win");
-    console.log(stateGameState);
     if (checkVertical(i, j, blocksToWin, XorO, stateGameState) || checkUpperDiagonal(i, j, blocksToWin, XorO, stateGameState) || checkHorizontal(i, j, blocksToWin, XorO, stateGameState) || checkLowerDiagonal(i, j, blocksToWin, XorO, stateGameState)) {
         return true
     } else{
