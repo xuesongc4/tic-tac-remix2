@@ -102,18 +102,14 @@ class App extends Component {
             tieCondition = 361;
         }
 
-        console.log(tieCondition)
-
-        if(checkWin(i,j,neededToWin,newGameState,currentPlayerTurn)){
-            console.log("win")
+       if(checkWin(i,j,neededToWin,newGameState,currentPlayerTurn)){
             this.setState({gameWon:true})
-        }
-        if(this.state.turns >= tieCondition){
-            console.log("tie")
-            this.setState({gameTied:true})
-        }
+        } else if(this.state.turns === tieCondition-1){
+           this.setState({gameTied:true})
+       }else
 
-        this.setState({
+
+           this.setState({
             player1Turn: !this.state.player1Turn,
             gameState: newGameState
         });

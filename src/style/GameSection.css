@@ -53,3 +53,7 @@
 .gameSquare.noClick{
     pointer-events: none;
 }
+
+.GameScreen{
+    overflow: hidden;
+}
