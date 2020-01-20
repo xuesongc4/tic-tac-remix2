@@ -5,6 +5,10 @@ const GameBoard = (props)=>{
     let gameBoardSize;
     let GameBoardContainerCss = 'GameBoardContainer '+props.gameData.boardSize;
 
+    if(props.gameData.restartButton || props.gameData.gameWon || props.gameData.gameTied){
+        GameBoardContainerCss = GameBoardContainerCss + ' offScreen'
+    }
+
     if(props.gameData.boardSize === 'Rookie'){
         gameBoardSize = 3;
     }else if(props.gameData.boardSize === 'Pro'){
