@@ -1,5 +1,5 @@
-.GameBoard{
-    background: url('../assets/images/app_bg.jpg')top right no-repeat;
+.GameBoard {
+    background: url('../assets/images/app_bg.jpg') center center no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -8,52 +8,75 @@
     align-items: center;
 }
 
-.GameBoardContainer{
+.GameBoardContainer {
     height: 75vh;
     width: 75vh;
     display: grid;
     margin-bottom: 50px;
+    transition-duration: 1.5s;
 }
 
-.GameBoardContainer.Rookie{
-    grid-template-columns:repeat(3, 1fr) ;
+.GameBoardContainer.Rookie {
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
 
-.GameBoardContainer.Pro{
-    grid-template-columns:repeat(8, 1fr) ;
+.GameBoardContainer.Pro {
+    grid-template-columns: repeat(8, 1fr);
     grid-gap: 7px;
 }
 
-.GameBoardContainer.SuperStar{
-    grid-template-columns:repeat(19, 1fr) ;
+.GameBoardContainer.SuperStar {
+    grid-template-columns: repeat(19, 1fr);
     grid-gap: 4px;
 }
 
-.gameSquare{
-    background-color: rgba(50,50,50,.6);
+.gameSquare {
+    background-color: rgba(50, 50, 50, .6);
     height: 100%;
     width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
-.gameSquare img{
-    max-width: 90%;
+.gameSquare img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-height: 90%;
+    display: none;
 }
 
-.gameSquare:hover{
+.gameSquare.noClick img{
+    display: inline-block;
+    animation: bounce2 2s infinite, flash3 .4s;
+}
+.gameSquare.noClick{
+    animation: flash4 .4s;
+}
+
+.gameSquare:hover {
     cursor: pointer;
     animation: flash2 .5s infinite;
-    background-color: rgba(240,128,128, .5);
+    background-color: rgba(240, 128, 128, .5);
 }
 
-.gameSquare.noClick{
+.gameSquare.noClick {
     pointer-events: none;
 }
 
-.GameScreen{
-    overflow: hidden;
+@media (max-width: 1024px) {
+    .GameBoardContainer {
+        height: 70vh;
+        width: 70vh;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .GameBoardContainer {
+        height: 40vh;
+        width: 40vh;
+    }
 }
