@@ -69,7 +69,6 @@
     .GameScreen{
         flex-direction: column-reverse;
     }
-
     .ScoreSection{
         background:url('../assets/images/controls_bg2.jpg')bottom left repeat;
         background-size: cover;

@@ -34,6 +34,7 @@ const GameBoard = (props)=>{
             <div className={GameBoardContainerCss}>
                 {createBoard()}
             </div>
+            <canvas id="canvas" width="750" height="400"></canvas>
         </div>
     )
 };

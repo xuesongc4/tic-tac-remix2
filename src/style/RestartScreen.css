@@ -2,11 +2,11 @@
     z-index: 10;
     height: 500px;
     width: 500px;
-    left: 40%;
-    top: 7%;
+    left: 35%;
+    top: 3%;
     background: url(../assets/images/start_bg.jpg)center center no-repeat;
     background-size: cover;
-    border: 200px solid black;
+    border: 170px solid black;
     border-radius: 50%;
     transition-duration: 2s;
     display:flex;
@@ -18,15 +18,17 @@
 }
 
 .message{
-    font-size: 60px;
-    text-shadow: 3px 3px 20px black;
+    font-size: 55px;
+    text-shadow: 3px 3px 2px black;
+    color: darkorange;
+    text-decoration: underline;
+    font-weight: 900;
+    width: 110%;
+    align-self: center;
+    padding: 5px 0 10px;
+    background-color: rgba(0,0,0,.5);
 }
 
-.offScreen{
-    transform: rotate(3600deg) translateY(300%);
-    pointer-events: none;
-    transition-delay: .5s;
-}
 .button-container{
     display: flex;
     width: 90%;
@@ -36,7 +38,7 @@
 .RestartScreen .button{
     border: 3px solid white;
     border-radius: 10px;
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(0,0,0,.5);
     padding: 10px;
     font-size: 24px;
     width: 80%;
@@ -53,4 +55,38 @@
 a.button{
     text-decoration: none;
     color: white;
+}
+
+@media (max-width: 1024px){
+    .RestartScreen{
+        height: 370px;
+        width: 370px;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%,-5%);
+        border: 150px solid black;
+    }
+    .message{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px){
+    .RestartScreen{
+        height: 300px;
+        width: 300px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 120px solid black;
+    }
+    .message{
+        font-size: 32px;
+    }
+}
+
+.offScreen{
+    transform: rotate(3600deg) translateY(300%);
+    pointer-events: none;
+    transition-delay: .5s;
 }
