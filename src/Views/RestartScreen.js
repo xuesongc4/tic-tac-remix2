@@ -8,12 +8,12 @@ const RestartScreen = (props) => {
     }
 
     const message = () =>{
-        let message="";
+        let message = "Tic-Tac-Remix!";
         if(props.gameData.gameWon && props.gameData.player1Turn){
               message = props.gameData.player1 + " is a SUPERSTAR!";
         }
         else if(props.gameData.gameWon && !props.gameData.player1Turn){
-            message =  props.gameData.player2 + "is a SUPERSTAR!";
+            message =  props.gameData.player2 + " is a SUPERSTAR!";
         }else if(props.gameData.gameTied){
             message = "CATS GAME!";
         }

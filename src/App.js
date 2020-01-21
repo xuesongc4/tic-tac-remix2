@@ -3,6 +3,8 @@ import './App.css';
 import GameScreen from "./Views/GameScreen";
 import ConsoleScreen from "./Views/ConsoleScreen";
 import checkWin from "./Util/winCondition"
+import initializeAudioVisualizer from "./Util/AudioVisualizer"
+
 
 class App extends Component {
     state = {
@@ -17,6 +19,10 @@ class App extends Component {
         restartButton: false,
         turns:0
     };
+
+    componentDidMount() {
+        initializeAudioVisualizer(document.getElementById('audio'));
+    }
 
     playerNameInput = (event, index) => {
         const name = event.target.value;
