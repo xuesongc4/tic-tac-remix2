@@ -142,13 +142,7 @@ class App extends Component {
                     restartClick={this.restartButtonClick}
                     resetGameClick={this.resetGame}
                 />
-                <ConsoleScreen
-                    currentScreen={this.state.consoleScreen}
-                    changeScreenClick={this.changeScreenClick}
-                    playerNameInput={this.playerNameInput}
-                    changeBoardSizeClick={this.changeBoardSize}
-                    currentLevel={this.state.boardSize}
-                />
+
             </div>
         );
     }
