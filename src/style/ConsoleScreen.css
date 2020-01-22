@@ -7,9 +7,10 @@
     top: 0;
     left:0;
     transition-duration: 1s;
+    z-index: 100;
 }
 .ConsoleScreen.hide{
-    top:-100vh
+    top:-120vh
 }
 
 h1{
@@ -225,7 +226,8 @@ h1{
         top:150px;
     }
     .startButton {
-        right: 50%;
+        left: -20%;
+        right: unset;
         bottom: 20px;
         transform: translateX(50%);
     }

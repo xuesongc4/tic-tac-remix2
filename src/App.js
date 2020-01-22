@@ -17,11 +17,53 @@ class App extends Component {
         gameWon: false,
         gameTied: false,
         restartButton: false,
-        turns:0
+        turns:0,
+        audio:2,
+        audioIncrease: true
     };
 
     componentDidMount() {
-        initializeAudioVisualizer(document.getElementById('audio'));
+        const audio = document.getElementById('audio');
+        initializeAudioVisualizer(audio);
+        audio.play();
+    }
+
+    clickAudioFx= (fx) =>{
+        if(!fx){
+            fx='scratch';
+        }
+        const audio = document.getElementById(fx);
+        audio.play();
+    }
+
+    audioPause= ()=>{
+        const audio = document.getElementById("audio");
+        audio.pause();
+    }
+
+    music_mix = () =>{
+        const audio = document.getElementById("audio");
+        let audioLayers = this.state.audio;
+        let increase = this.state.audioIncrease;
+
+        let currentTime = audio.currentTime;
+        audio.src = window.location.origin+"/music/layer"+audioLayers+".mp3";
+        audio.currentTime = currentTime;
+        audio.play();
+
+        if (increase) {
+            audioLayers++;
+            if (audioLayers === 7) {
+                this.setState({audioIncrease:false})
+            }
+        }
+        else {
+            audioLayers--;
+            if (audioLayers === 1) {
+                this.setState({audioIncrease:true})
+            }
+        }
+        this.setState({audio:audioLayers})
     }
 
     playerNameInput = (event, index) => {
@@ -35,7 +77,9 @@ class App extends Component {
     };
 
     restartButtonClick = () =>{
-        this.setState({restartButton:true})
+        this.setState({restartButton:true});
+        this.clickAudioFx('reset');
+        this.audioPause();
     }
 
     resetGame = () =>{
@@ -45,17 +89,29 @@ class App extends Component {
             gameWon: false,
             gameTied: false,
             turns:0,
+            audio:2,
+            audioIncrease: true,
             restartButton: false});
         this.createBoard();
+        this.clickAudioFx('scratch');
+        const audio = document.getElementById('audio');
+        audio.src = window.location.origin+"/music/layer1.mp3";
+        audio.play();
     }
 
     changeBoardSize = (size) => {
         this.setState({boardSize: size})
+        this.clickAudioFx('scratch');
     };
 
     changeScreenClick = () =>{
         this.setState({consoleScreen:false})
         this.createBoard();
+        this.clickAudioFx('scratch');
+
+        const audio = document.getElementById("audio");
+        audio.src = window.location.origin+"/music/layer1.mp3";
+        audio.play();
     };
 
     createBoard = () =>{
@@ -85,6 +141,9 @@ class App extends Component {
         let neededToWin;
         let tieCondition;
 
+        this.clickAudioFx('scratch');
+        this.music_mix();
+
         this.setState({turns:this.state.turns+1});
 
         if(this.state.player1Turn){
@@ -109,12 +168,14 @@ class App extends Component {
         }
 
        if(checkWin(i,j,neededToWin,newGameState,currentPlayerTurn)){
-            this.setState({gameWon:true})
+           this.setState({gameWon:true});
+           this.clickAudioFx('reset');
+           this.audioPause();
         } else if(this.state.turns === tieCondition-1){
-           this.setState({gameTied:true})
+           this.setState({gameTied:true});
+           this.clickAudioFx('reset');
+           this.audioPause();
        }else
-
-
            this.setState({
             player1Turn: !this.state.player1Turn,
             gameState: newGameState
