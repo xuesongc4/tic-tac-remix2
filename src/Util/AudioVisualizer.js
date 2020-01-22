@@ -27,9 +27,9 @@ function initializeAudioVisualizer(audio) {
         capYPositionArray = []; ////store the vertical position of hte caps for the preivous frame
     var ctx = canvas.getContext('2d');
     var gradient = ctx.createLinearGradient(0, 0, 0, 1);
-    gradient.addColorStop(1, 'rgba(255,0,0,.7)');
-    gradient.addColorStop(0.5, 'rgba(255,0,0,.7)');
-    gradient.addColorStop(0, 'rgba(255,0,0,.7)');
+    gradient.addColorStop(1, 'rgba(255,0,0,.5)');
+    gradient.addColorStop(0.5, 'rgba(255,0,0,.5)');
+    gradient.addColorStop(0, 'rgba(255,0,0,.5)');
     // loop
     function renderFrame() {
         var array = new Uint8Array(analyser.frequencyBinCount);
