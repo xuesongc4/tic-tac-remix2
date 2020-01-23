@@ -115,7 +115,6 @@ class App extends Component {
     };
 
     createBoard = () =>{
-        console.log("create board")
         let setGameState =[];
         let gameBoardSize;
         if(this.state.boardSize === "SuperStar"){
