@@ -3,15 +3,7 @@ import './App.css';
 import GameScreen from "./Views/GameScreen";
 import ConsoleScreen from "./Views/ConsoleScreen";
 import checkWin from "./Util/winCondition"
-import layer1 from "./assets/music/layer1.mp3"
-import layer2 from "./assets/music/layer2.mp3"
-import layer3 from "./assets/music/layer3.mp3"
-import layer4 from "./assets/music/layer4.mp3"
-import layer5 from "./assets/music/layer5.mp3"
-import layer6 from "./assets/music/layer6.mp3"
-import layer7 from "./assets/music/layer7.mp3"
-import recordScratch from "./assets/music/record-scratch-1.wav"
-import scratch from "./assets/music/scratch.mp3"
+import * as audioFx from "./Util/audioFiles"
 import initializeAudioVisualizer from "./Util/AudioVisualizer"
 
 
@@ -81,19 +73,19 @@ class App extends Component {
 
     track_select = (trackNumber) => {
         if (trackNumber === 1) {
-            return layer1
+            return audioFx.layer1
         } else if (trackNumber === 2) {
-            return layer2
+            return audioFx.layer2
         } else if (trackNumber === 3) {
-            return layer3
+            return audioFx.layer3
         } else if (trackNumber === 4) {
-            return layer4
+            return audioFx.layer4
         } else if (trackNumber === 5) {
-            return layer5
+            return audioFx.layer5
         } else if (trackNumber === 6) {
-            return layer6
+            return audioFx.layer6
         } else if (trackNumber === 7) {
-            return layer7
+            return audioFx.layer7
         }
     }
 
@@ -127,7 +119,7 @@ class App extends Component {
         this.createBoard();
         this.clickAudioFx('scratch');
         const audio = document.getElementById('audio');
-        audio.src = layer1;
+        audio.src = audioFx.layer1;
         this.audioPlay(audio);
     }
 
@@ -247,9 +239,9 @@ class App extends Component {
                     changeBoardSizeClick={this.changeBoardSize}
                     currentLevel={this.state.boardSize}
                 />
-                <audio id="audio" className="music" src={layer1} loop></audio>
-                <audio id="scratch" className="clickFx" src={scratch}></audio>
-                <audio id="reset" className="loadFx" src={recordScratch}></audio>
+                <audio id="audio" className="music" src={audioFx.layer1} loop></audio>
+                <audio id="scratch" className="clickFx" src={audioFx.scratch}></audio>
+                <audio id="reset" className="loadFx" src={audioFx.recordScratch}></audio>
             </div>
         );
     }

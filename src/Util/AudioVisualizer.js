@@ -13,14 +13,12 @@ function initializeAudioVisualizer(audio) {
     // we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
     // analyser.fftSize = 64;
     // frequencyBinCount tells you how many values you'll receive from the analyser
-    var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
     // we're ready to receive some data!
     var canvas = document.getElementById('canvas'),
         cwidth = canvas.width,
         cheight = (canvas.height - 2),
         meterWidth = 10, //width of the meters in the spectrum
-        gap = 2, //gap between meters
         capHeight = 2,
         capStyle = '#fff',
         meterNum = 500, //count of the meters
