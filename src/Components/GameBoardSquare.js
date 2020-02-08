@@ -5,7 +5,7 @@ const GameBoardSquare = (props) => {
     const renderMarker = () => {
 
         if (props.gameData.gameState[props.positionX][props.positionY] === "X") {
-            return (require("../assets/images/playerX.png"))
+            return (require("../assets/images./playerX.png"))
         } else if (props.gameData.gameState[props.positionX][props.positionY] === "O") {
             return (require("../assets/images/playerO.png"))
         }
