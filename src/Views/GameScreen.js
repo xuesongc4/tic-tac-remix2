@@ -7,7 +7,6 @@ import RestartScreen from "./RestartScreen";
 
 
 const GameScreen = (props) => {
-
     return (
         <div className='GameScreen'>
             <ScoreSection gameData={props.gameData} restartClick={props.restartClick} resetGameClick={props.resetGameClick}/>
@@ -15,6 +14,6 @@ const GameScreen = (props) => {
             <RestartScreen gameData={props.gameData} resetGameClick={props.resetGameClick}/>
         </div>
     )
-}
+};
 
 export default GameScreen
