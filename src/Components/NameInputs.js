@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NameInputs = (props) =>{
+const NameInputs = (props) => {
     return (
         <div className="nameInputWrapper">
             <div className="ticket ticket1">
@@ -21,6 +21,6 @@ const NameInputs = (props) =>{
             </div>
         </div>
     )
-}
+};
 
 export default NameInputs

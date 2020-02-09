@@ -18,7 +18,7 @@ const RestartScreen = (props) => {
             message = "CATS GAME!";
         }
         return message
-    }
+    };
 
     return (
         <div className={style}>
@@ -31,6 +31,6 @@ const RestartScreen = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default RestartScreen

@@ -1,37 +1,29 @@
 import React from 'react'
 import ScoreBlock from "./ScoreBlock";
 
-const ScoreSection = (props)=>{
-    let active;
-    let rule;
-
-    if(props.gameData.player1Turn){
-        active = true
-    }else{
-        active = false
-    }
-
-    if(props.gameData.boardSize === 'Rookie'){
-        rule = '3 in a row to win'
-    }else if(props.gameData.boardSize === 'Pro'){
-        rule = '4 in a row to win'
-    }else{
-        rule = '5 in a row to win'
-    }
-
-    return(
+const ScoreSection = (props) => {
+    return (
         <div className='ScoreSection'>
-            <ScoreBlock active={active} content={props.gameData.player1}/>
+            <ScoreBlock active={props.gameData.player1Turn}>{props.gameData.player1}</ScoreBlock>
             <div className="vs">
                 VS.
             </div>
-            <ScoreBlock active={!active} content={props.gameData.player2}/>
-            <ScoreBlock content={rule}/>
+            <ScoreBlock active={!props.gameData.player1Turn}>{props.gameData.player2}</ScoreBlock>
+            <ScoreBlock>{(() => {
+                if (props.gameData.boardSize === 'Rookie') {
+                    return '3 in a row to win'
+                } else if (props.gameData.boardSize === 'Pro') {
+                    return '4 in a row to win'
+                } else {
+                    return '5 in a row to win'
+                }
+            })()
+            }</ScoreBlock>
             <div className="resetButton" onClick={props.restartClick}>
                 Restart Game
             </div>
         </div>
     )
-}
+};
 
 export default ScoreSection

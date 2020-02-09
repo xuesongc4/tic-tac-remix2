@@ -1,17 +1,11 @@
 import React from 'react'
 
-const ScoreBlock = (props)=>{
-    let style;
-    if(props.active){
-        style = 'ScoreBlock active'
-    }else{
-        style = 'ScoreBlock'
-    }
+const ScoreBlock = (props) => {
     return(
-        <div className={style}>
-            {props.content}
+        <div className={props.active ? 'ScoreBlock active' : 'ScoreBlock'}>
+            {props.children}
         </div>
     )
-}
+};
 
 export default ScoreBlock

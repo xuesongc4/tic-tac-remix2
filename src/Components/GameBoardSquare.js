@@ -1,15 +1,16 @@
 import React from 'react'
+import playerXImg from '../assets/images/playerX.png'
+import playerOImg from '../assets/images/playerO.png'
 
 const GameBoardSquare = (props) => {
 
     const renderMarker = () => {
-
         if (props.gameData.gameState[props.positionX][props.positionY] === "X") {
-            return (require("../assets/images./playerX.png"))
+            return (<img src={playerXImg} alt='X'/>)
         } else if (props.gameData.gameState[props.positionX][props.positionY] === "O") {
-            return (require("../assets/images/playerO.png"))
+            return (<img src={playerOImg} alt='O'/>)
         }
-    }
+    };
 
     return (
         <div
@@ -22,9 +23,9 @@ const GameBoardSquare = (props) => {
             onClick={() => {
                 props.blockClick(props.positionX, props.positionY)
             }}>
-            <img src={renderMarker()} alt=''/>
+            {renderMarker()}
         </div>
     )
-}
+};
 
 export default GameBoardSquare

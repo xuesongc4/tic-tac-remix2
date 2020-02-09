@@ -2,22 +2,23 @@ import React from 'react'
 import GameBoardSquare from "./GameBoardSquare";
 
 const GameBoard = (props)=>{
-    let gameBoardSize;
-    let GameBoardContainerCss = 'GameBoardContainer '+props.gameData.boardSize;
+
+    let GameBoardContainerCss = 'GameBoardContainer ' + props.gameData.boardSize;
 
     if(props.gameData.restartButton || props.gameData.gameWon || props.gameData.gameTied){
         GameBoardContainerCss = GameBoardContainerCss + ' offScreen'
     }
 
-    if(props.gameData.boardSize === 'Rookie'){
-        gameBoardSize = 3;
-    }else if(props.gameData.boardSize === 'Pro'){
-        gameBoardSize = 8;
-    }else{
-        gameBoardSize = 19;
-    }
-
     const createBoard = () =>{
+        let gameBoardSize;
+        if(props.gameData.boardSize === 'Rookie'){
+            gameBoardSize = 3;
+        }else if(props.gameData.boardSize === 'Pro'){
+            gameBoardSize = 8;
+        }else{
+            gameBoardSize = 19;
+        }
+
         if(!props.gameData.consoleScreen){
             let board = [];
             for(let i = 0; i < gameBoardSize; i++){
@@ -34,7 +35,7 @@ const GameBoard = (props)=>{
             <div className={GameBoardContainerCss}>
                 {createBoard()}
             </div>
-            <canvas id="canvas" width="750" height="400"></canvas>
+            <canvas id="canvas" width="750" height="400"/>
         </div>
     )
 };
